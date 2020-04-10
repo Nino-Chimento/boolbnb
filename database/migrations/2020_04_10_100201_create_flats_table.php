@@ -28,6 +28,7 @@ class CreateFlatsTable extends Migration
             $table->integer("rooms")->unsigned();
             $table->integer("bathrooms")->unsigned();
             $table->integer("mq")->unsigned();
+            $table->boolean("published");
             $table->timestamps();
         });
     }
