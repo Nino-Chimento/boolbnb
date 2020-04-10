@@ -10,4 +10,9 @@ class Option extends Model
         "wifi", "parking", "pool", "reception",
         "sauna", "sea_view"
     ];
+
+    public function flats()
+    {
+        return $this->belongsToMany('App\Flat');
+    }
 }
