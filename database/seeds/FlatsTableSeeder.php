@@ -25,7 +25,9 @@ class FlatsTableSeeder extends Seeder
             $flats->title = $faker->sentence(5);
             $flats->img = "https://picsum.photos/id/$numberOne/300/200";
             $flats->address = $faker->address;
-            $flats->position = $faker->latitude;
+            $flats->city = $faker->city;
+            $flats->latitude = $faker->latitude;
+            $flats->longitude = $faker->longitude;
             $flats->slug = Str::slug($flats->title, '-');
             $flats->summary = $faker->text(40);
             $flats->rooms = rand(1,5);

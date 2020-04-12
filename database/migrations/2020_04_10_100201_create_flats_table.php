@@ -20,9 +20,11 @@ class CreateFlatsTable extends Migration
                 ->references('id')
                 ->on('users');
             $table->string("title",250);
+            $table->string("city", 250);
             $table->string("img")->nullable();
             $table->string("address")->nullable();
-            $table->string("position")->nullable();
+            $table->string("latitude")->nullable();
+            $table->string("longitude")->nullable();
             $table->string("slug")->unique();
             $table->text("summary")->nullable();
             $table->integer("rooms")->unsigned();

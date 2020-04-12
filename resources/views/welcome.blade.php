@@ -64,9 +64,15 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+        <div class=" full-height">
+            <div class="d-flex justify-content-center align-content-center">
+                <div class="links">
+                     <a class=" " href="{{ url('/') }}">BoolBnB</a>
+                </div>
+                
+                  @if (Route::has('login'))
                 <div class="top-right links">
+                       
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -78,23 +84,22 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
-        </div>
+           {{-- barra gramde per la ricerca con solo nome o citta  --}}
+            <div class="form-group text-center">
+                <form action="">
+                    <input type="text" value="" placeholder="Inserisci il nome o la citta'"> 
+                    <button type="submit">Vai</button>
+                </form>
+            </div> 
+             
+             {{-- wrap per slider img --}}
+             <div class="">
+
+             </div>
+             {{-- div con casa a card --}}
+         </div>
     </body>
-</html>
+</html> 
+
+
