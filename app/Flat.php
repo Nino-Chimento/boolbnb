@@ -21,9 +21,9 @@ class Flat extends Model
         return $this->hasMany("App\Message");
     }
 
-    protected function advertising()
+    public function advertisings()
     {
-        return $this->belongsTo("App\Advertising");
+        return $this->belongsToMany('App\Advertising');
     }
 
     public function options()

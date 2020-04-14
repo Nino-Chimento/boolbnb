@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             $newUser->lastname = $faker->lastName();
             $newUser->email = $faker->email();
             $newUser->password = Hash::make("pippo123");
-
+            $newUser->save();
         }
         
 

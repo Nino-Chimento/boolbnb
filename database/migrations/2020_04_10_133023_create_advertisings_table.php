@@ -15,10 +15,6 @@ class CreateAdvertisingsTable extends Migration
     {
         Schema::create('advertisings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('flat_id');
-            $table->foreign('flat_id')
-                ->references('id')
-                ->on('flats');
             $table->text("name");
             $table->float("price",6,2);    
             $table->integer("hours");

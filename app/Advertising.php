@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Advertising extends Model
 {
     protected $fillable = [
-        "flat_id",
+       
         "name",
         "price",
         "hours"
     ];
 
-    protected function flats()
+    public function flats()
     {
-        return $this->hasMany("App\Flat");
+        return $this->belongsToMany('App\Flat');
     }
+    
 }
