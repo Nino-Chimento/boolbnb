@@ -15,12 +15,7 @@ class CreateOptionsTable extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->boolean("wifi");
-            $table->boolean("parking");
-            $table->boolean("pool");
-            $table->boolean("reception");
-            $table->boolean("sauna");
-            $table->boolean("sea_view");
+            $table->string("name");
             $table->timestamps();
         });
     }

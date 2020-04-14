@@ -94,11 +94,13 @@
             </div> 
              
              {{-- wrap per slider img --}}
-             <div class="">
+          
+    
 
-             </div>
+
              {{-- div con casa a card --}}
          </div>
+        <script src=" {{asset("js/app.js")}}"></script>
     </body>
 </html> 
 
