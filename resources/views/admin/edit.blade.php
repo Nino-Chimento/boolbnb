@@ -28,7 +28,7 @@
       @endif
       <div class="form-group">
         <label for="title">Title</label>
-      <input class="form-control" ++type="text" name="title" value="{{$flat->title}}">
+      <input class="form-control" type="text" name="title" value="{{$flat->title}}">
       </div>
 
       <div class="form-group">
@@ -68,6 +68,17 @@
         <input type="text" name="published" value="{{$flat->published}}">
         <input type="hidden" name="id" value="{{$flat->id}}">
         </div>
+
+        <div class="form-group">
+            <label for="options">options</label>
+            @foreach ($options as $option)
+            <div>
+              <span>{{$option->name}}</span>
+              <input type="checkbox" name="options[]" value="{{$option->id}}" {{($flat->options->contains($option->id)) ? 'checked' : ''}}>
+            </div>
+            @endforeach
+
+
         <button class="btn btn-success" type= "submit" >modifica</button>
     </form>
 </body>

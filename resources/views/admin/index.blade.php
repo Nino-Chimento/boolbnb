@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+  @if($errors->any())
+  <h4>{{$errors->first()}}</h4>
+  @endif
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
     <a class="btn btn-primary" href="{{(route('admin.flats.create'))}}">Crea un nuovo appartamento</a>
     <table class="table">
         <thead>

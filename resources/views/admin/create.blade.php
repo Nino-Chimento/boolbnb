@@ -8,6 +8,20 @@
 </head>
 <body>
   <div class="container">
+    @if($errors->any())
+    <h4>{{$errors->first()}}</h4>
+    @endif
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            @endif
+        </ul>
+    </div>
+
+
     <div class="row">
       {{-- <h2>{{Auth::user()->name}}</h2> --}}
       <form action="{{route('admin.flats.store')}}" method="post">
@@ -15,7 +29,7 @@
         @method('POST')
         <div class="form-group">
           <label for="title">Title</label>
-          <input class="form-control" type="text" name="title">
+        <input class="form-control" type="text" name="title">
         </div>
 
         <div class="form-group">
@@ -62,6 +76,17 @@
                 <option value="1">Si</option>
             </select>
           </div>
+          
+          <div class="form-group">
+            <label for="options">options</label>
+            @foreach ($options as $option)
+          </div>
+            <div>
+              <span>{{$option->name}}</span>
+              <input type="checkbox" name="options[]" value="{{$option->id}}">
+            </div>
+            @endforeach
+  
 
         
         {{-- <input type="hidden" name="user_id" value="{{Auth::user()->name}}"> --}}

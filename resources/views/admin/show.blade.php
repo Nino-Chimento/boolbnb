@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+  
+
+<a href="{{route('admin.flats.index')}}">Home</a>
     <table class="table">
       <thead>
         <tr>
@@ -27,6 +30,9 @@
           <td>{{$flat->bathrooms}}</td>
           <td>{{$flat->mq}}</td>
           <td>{{$flat->city}}</td>
+          @foreach ($flat->options as $option)
+          <td>{{$option->name}}</td>
+          @endforeach
         </tr>        
       </tbody>
     </table>
