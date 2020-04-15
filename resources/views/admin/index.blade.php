@@ -25,8 +25,7 @@
             <td>{{$flat->title}}</td>
             <td>{{$flat->address}}</td>
           <td><a class="btn btn-primary" href="{{(route('admin.flats.show', $flat->slug))}}">View</a> </td>
-            <td><a class="btn btn-primary" href="">Edit</a> </td>
-            <td>
+          <td><a class="btn btn-primary" href="{{(route('admin.flats.edit', $flat->slug))}}">edit</a> </td>
             </tr>
             @endforeach
         </tbody>

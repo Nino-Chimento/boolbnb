@@ -68,7 +68,6 @@ class FlatController extends Controller
     public function show($slug)
     {
         $flat = Flat::where('slug', $slug)->first();
-        
         return view('admin.show', compact('flat'));
 
     }
@@ -79,9 +78,11 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $flat = Flat::where('slug', $slug)->first();
+        return view('admin.edit', compact('flat'));
+
     }
 
     /**
@@ -91,9 +92,16 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $data= $request->all();
+        $flat= Flat::where('slug', $slug)->first();
+        $flat->update($data);
+        if(!$flat->update()){
+            return redirect()->back();
+        }
+        return redirect()->route('admin.flats.show', [$slug]);
+
     }
 
     /**
