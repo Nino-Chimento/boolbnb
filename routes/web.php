@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//inserieamo le rotte admin
 Auth::routes();
+Route::name('admin.')->namespace('Admin')->middleware('auth')->prefix('admin')->group(function () {
+    Route::resource('flats','FlatController');
+   });
 
-Route::get('/home', 'HomeController@index')->name('home');
+
