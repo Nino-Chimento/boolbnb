@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedBigInteger('flat_id');
             $table->foreign('flat_id')
                 ->references('id')
-                ->on('flats');
+                ->on('flats')->onDelete('cascade');
             $table->text("email");
             $table->char("name",30);
             $table->string("number_phone");
