@@ -80,7 +80,6 @@ class FlatController extends Controller
          }
         $address =  str_replace(' ','&', $data['address']);
         $city =  str_replace(' ','&', $data['city']);
-        
         $url = 'https://api.tomtom.com/search/2/geocode/'.$address.'&'.$city.'.json?limit=1&key=fWpjrvAGyfhbJRWFkaCXPHgnlu9PL5Fp';
         $position = json_decode(file_get_contents($url));
         if(empty($position->results)) {
@@ -163,7 +162,18 @@ class FlatController extends Controller
                 ]);
             }
         }
+        $address =  str_replace(' ','&', $data['address']);
+        $city =  str_replace(' ','&', $data['city']);
+        $url = 'https://api.tomtom.com/search/2/geocode/'.$address.'&'.$city.'.json?limit=1&key=fWpjrvAGyfhbJRWFkaCXPHgnlu9PL5Fp';
+        $position = json_decode(file_get_contents($url));
+        if(empty($position->results)) {
+          return redirect()->back()->with('success');
+        }
+        $latitude = $position->results[0]->position->lat;
+        $longitude = $position->results[0]->position->lon;
         $flat= Flat::where('slug', $slug)->first();
+        $flat->latitude = $latitude;
+        $flat->longitude = $longitude;
         $flat->options()->sync($options);
         $flat->update($data);
         if(!$flat->update()){

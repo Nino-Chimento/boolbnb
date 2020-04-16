@@ -69,10 +69,10 @@
                 <div class="links">
                      <a class=" " href="{{ url('/') }}">BoolBnB</a>
                 </div>
-                
+
                   @if (Route::has('login'))
                 <div class="top-right links">
-                       
+
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -85,23 +85,24 @@
                 </div>
             @endif
             </div>
-           {{-- barra gramde per la ricerca con solo nome o citta  --}}
+           {{-- barra grande per la ricerca con solo nome o citta  --}}
             <div class="form-group text-center">
-                <form action="">
-                    <input type="text" value="" placeholder="Inserisci il nome o la citta'"> 
+                <form action="{{route('search')}}" method="get">
+                    @csrf
+                    @method('GET')
+                    <input name="address" type="text" value="" placeholder="Inserisci l'indirizzo">
+                    <input name="city" type="text" value="" placeholder="Inserisci citta'">
                     <button type="submit">Vai</button>
                 </form>
-            </div> 
-             
+            </div>
+
              {{-- wrap per slider img --}}
-          
-    
+
+
 
 
              {{-- div con casa a card --}}
          </div>
         <script src=" {{asset("js/app.js")}}"></script>
     </body>
-</html> 
-
-
+</html>

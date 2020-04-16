@@ -22,4 +22,4 @@ Route::name('admin.')->namespace('Admin')->middleware('auth')->prefix('admin')->
     Route::resource('flats','FlatController');
    });
 
-
+Route::get('search','FilterFlatController@filterPosition')->name('search');
