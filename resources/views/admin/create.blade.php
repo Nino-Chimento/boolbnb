@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+
+
   <a href="{{route('admin.flats.index')}}">Home</a>
   <h1>Create a new apartment</h1>
   <div class="container">
@@ -64,7 +66,7 @@
             <option value="1">Si</option>
           </select>
         </div>
-        
+
         <div class="form-group">
           <label for="options">Additional services</label>
           @foreach ($options as $option)

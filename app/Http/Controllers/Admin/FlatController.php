@@ -66,23 +66,35 @@ class FlatController extends Controller
     {
         $user_id = Auth::id();
         if(empty($user_id)){
-            abort('404',"l'utente non è loggato");
-        }
-        // $request->validate($this->validationFlatCreate);
-        $data = $request->All();
-        $options= $data['options'];
-        if(!empty($options)){
-            for ($i=0; $i < count($options); $i++) { 
-                $request->validate([
+             abort('404',"l'utente non è loggato");
+         }
+         $request->validate($this->validationFlatCreate);
+         $data = $request->All();
+         $options= $data['options'];
+         if(!empty($options)){
+           for ($i=0; $i < count($options); $i++) {
+                 $request->validate([
                     $options[$i]=>'exists:App\Option,id'
                 ]);
             }
+         }
+        $address =  str_replace(' ','&', $data['address']);
+        $city =  str_replace(' ','&', $data['city']);
+        
+        $url = 'https://api.tomtom.com/search/2/geocode/'.$address.'&'.$city.'.json?limit=1&key=fWpjrvAGyfhbJRWFkaCXPHgnlu9PL5Fp';
+        $position = json_decode(file_get_contents($url));
+        if(empty($position->results)) {
+          return redirect()->back()->with('success');
         }
+        $latitude = $position->results[0]->position->lat;
+        $longitude = $position->results[0]->position->lon;
         $newFlat = new Flat;
         $newFlat->fill($data);
         $newFlat->user_id = $user_id;
+        $newFlat->latitude = $latitude;
+        $newFlat->longitude = $longitude;
         $newFlat->slug = Str::finish(Str::slug($newFlat->title),rand(1, 1000000));
-        
+
         $newFlat->save();
         if($newFlat->save())
         {
@@ -143,9 +155,9 @@ class FlatController extends Controller
         $request->validate($this->validationFlatCreate);
         $data= $request->all();
         $options= $data['options'];
-       
+
         if(!empty($options)){
-            for ($i=0; $i < count($options); $i++) { 
+            for ($i=0; $i < count($options); $i++) {
                 $request->validate([
                     $options[$i]=>'exists:App\Option,id'
                 ]);
@@ -168,7 +180,7 @@ class FlatController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Flat $flat)
-    {   
+    {
         if(empty($flat)){
             abort(404);
         }
@@ -177,9 +189,9 @@ class FlatController extends Controller
             $idDetach[]=$option->id;
         }
         $flat->options()->detach();
-       
+
         $flat->delete();
-         
+
         $flats = Flat::where('user_id', Auth::id())->get();
         return view('admin.index', compact('flats'));
     }
