@@ -17,7 +17,7 @@ class FlatController extends Controller
             'title'=>"string|max:50|required",
             'address'=>"string|max:50|required",
             'city'=>"string|max:50|required",
-            'mq'=>'numeric|max:300|required',
+            'mq'=>'numeric|required',
             'bathrooms'=>'numeric|max:300|required',
             'rooms'=>'numeric|max:300|required',
             'published'=>'boolean|required',
@@ -82,16 +82,19 @@ class FlatController extends Controller
         $newFlat->fill($data);
         $newFlat->user_id = $user_id;
         $newFlat->slug = Str::finish(Str::slug($newFlat->title),rand(1, 1000000));
+        
         $newFlat->save();
-        if($newFlat->save()){
+        if($newFlat->save())
+        {
             $newFlat->options()->attach($options);
             $slug = $newFlat->slug;
             return redirect()->route('admin.flats.show', [$slug]);
-        }else{
-            return redirect::back()->withErrors(['msg', 'Problemi di connessione col database']);
         }
-        
-
+        else
+        {
+            // return redirect::back()->withErrors(['msg', 'Problemi di connessione col database']);
+            return redirect()->back()->withErrors(['msg', 'Problemi di connessione col database']);
+        }
     }
 
     /**
