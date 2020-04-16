@@ -66,7 +66,7 @@
       <label for="published">Public</label>
       <select name="published">
         <option value="0">No</option>
-        <option value="1">Si</option>
+        <option value="1">Yes</option>
       </select>
     </div>
 

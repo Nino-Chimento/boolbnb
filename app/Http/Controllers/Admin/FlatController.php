@@ -168,7 +168,7 @@ class FlatController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Flat $flat)
-    {
+    {   
         if(empty($flat)){
             abort(404);
         }
@@ -179,13 +179,8 @@ class FlatController extends Controller
         $flat->options()->detach();
        
         $flat->delete();
-        if( $flat->delete()){
-            // return redirect("admin.flats.index")->with("delete",$flat);
-            return redirect('admin.index');         
-        } 
-        // else {
-        //     $flat->options()->attach($idDetach);
-        //     return redirect::back()->withErrors(['msg', 'L\'appartamento non è stato cancellato']);
-        // }
+         
+        $flats = Flat::where('user_id', Auth::id())->get();
+        return view('admin.index', compact('flats'));
     }
 }
