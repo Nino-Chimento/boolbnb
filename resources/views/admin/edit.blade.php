@@ -36,7 +36,7 @@
       <input class="form-control" type="number" name="rooms" value="{{$flat->rooms}}">
     </div>
 
-    <div class="form-group">
+    <div  class="form-group">
       <label for="beds">Beds</label>
       <input class="form-control" type="number" name="beds" value="{{$flat->beds}}">
     </div>

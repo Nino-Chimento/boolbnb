@@ -37054,6 +37054,22 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$(document).ready(function () {
+  $('.search').click(function () {
+    var rooms = $('.rooms').val();
+    var beds = $('.beds').val();
+    var checkbox_value = [];
+    $("input[name=chkbox]").each(function () {
+      var ischecked = $(this).is(":checked");
+
+      if (ischecked) {
+        checkbox_value.push($(this).val());
+      }
+    });
+    console.log(checkbox_value);
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37119,8 +37135,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\simon\Documents\boolean\esercitazioni\php\boolbnb1\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\simon\Documents\boolean\esercitazioni\php\boolbnb1\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\giuse\Desktop\Boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\giuse\Desktop\Boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
