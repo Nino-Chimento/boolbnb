@@ -10,12 +10,14 @@ class FilterFlatController extends Controller
 {
   function distance($lat1, $lon1, $latitude, $longitude, $unit){
             //longitudine e latitudine in radianti
+            //angolo ϑ con l'asse x in un piano-xy in coordinate (longitudine e latitudine)
             $theta = $lon1 - $longitude;
             //function Korn Shell che prevede serie di operatori matematici e trigonometrici
             $dist = sin(deg2rad($lat1)) * sin(deg2rad($latitude)) +  cos(deg2rad($lat1)) * cos(deg2rad($latitude)) * cos(deg2rad($theta));
             //calcolo della distanza
             $dist = acos($dist);
             $dist = rad2deg($dist);
+            //conversione distanza da radianti in miglia
             $miles = $dist * 60 * 1.1515;
             $unit = strtoupper($unit);
             //cambio unità di misura
