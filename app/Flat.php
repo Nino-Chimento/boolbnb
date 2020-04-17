@@ -8,7 +8,7 @@ class Flat extends Model
 {
     protected $fillable = [
         "user_id", "title", "img", "address", "slug",
-        "summary", "rooms", "bathrooms", "mq", "published","city",
+        "summary", "rooms", "beds", "bathrooms", "mq", "published","city",
         "latitude","longitude"
     ];
 

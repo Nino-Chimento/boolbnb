@@ -92,6 +92,7 @@
                     @method('GET')
                     <input name="address" type="text" value="" placeholder="Inserisci l'indirizzo">
                     <input name="city" type="text" value="" placeholder="Inserisci citta'">
+                    <input name="ray" type="number" value="" placeholder="Inserisci distanza in Km">
                     <button type="submit">Vai</button>
                 </form>
             </div>

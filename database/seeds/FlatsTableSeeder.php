@@ -15,8 +15,8 @@ class FlatsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 25; $i++) { 
-            
+        for ($i=0; $i < 25; $i++) {
+
             $userId = User::inRandomOrder()->first()->id;
             $numberOne = rand(1,100);
             $flats = new Flat;
@@ -30,9 +30,10 @@ class FlatsTableSeeder extends Seeder
             $flats->longitude = $faker->longitude;
             $flats->slug = Str::slug($flats->title, '-');
             $flats->summary = $faker->text(40);
-            $flats->rooms = rand(1,5);
-            $flats->bathrooms = rand(1,3);
-            $flats->mq = rand(1,120);
+            $flats->rooms = rand(1,15);
+            $flats->beds = rand(1,15);
+            $flats->bathrooms = rand(1,15);
+            $flats->mq = rand(50,300);
             $flats->published = rand(0,1);
             $flats->save();
         }

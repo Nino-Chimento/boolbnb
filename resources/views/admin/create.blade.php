@@ -40,6 +40,11 @@
         </div>
 
         <div class="form-group">
+          <label for="beds">Beds</label>
+          <input class="form-control" type="number" name="beds">
+        </div>
+
+        <div class="form-group">
           <label for="address">Address</label>
           <input class="form-control" type="text" name="address">
         </div>

@@ -28,6 +28,7 @@ class CreateFlatsTable extends Migration
             $table->string("slug")->unique();
             $table->text("summary")->nullable();
             $table->integer("rooms")->unsigned();
+            $table->integer("beds")->unsigned();
             $table->integer("bathrooms")->unsigned();
             $table->integer("mq")->unsigned();
             $table->boolean("published");

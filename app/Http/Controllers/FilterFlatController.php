@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Flat;
+use App\Option;
 
 class FilterFlatController extends Controller
 {
@@ -31,6 +32,7 @@ class FilterFlatController extends Controller
     $data = $request->all();
     $address =  str_replace(' ','&', $data['address']);
     $city =  str_replace(' ','&', $data['city']);
+    $ray =  (int)$data['ray'];
     $url = 'https://api.tomtom.com/search/2/geocode/'.$address.'&'.$city.'.json?limit=1&key=fWpjrvAGyfhbJRWFkaCXPHgnlu9PL5Fp';
     $position = json_decode(file_get_contents($url));
     if(empty($position->results)) {
@@ -38,16 +40,26 @@ class FilterFlatController extends Controller
     }
     $latitude = $position->results[0]->position->lat;
     $longitude = $position->results[0]->position->lon;
+    $options = Option::All();
     $flats = Flat::All();
+    $flatsFilter = [];
     foreach ($flats as $flat) {
-
     $distance = intval($this->distance($latitude, $longitude, $flat->latitude, $flat->longitude, 'K'));
-    //$a = intval($distance);
-
-    dd($distance);
+      if ($ray > $distance) {
+        $flatsFilter[] = $flat;
+      }
     }
-    //dd($latitude);
+    if (empty($flatsFilter)) {
+      $flatsFilter = [
+        'flatsFilter'=> 'Non ci sono appartamenti',
+        'options'=> $options
+      ];
+      return view('flatsResults', $flatsFilter);
+    }
+    $flatsFilter = [
+      'flatsFilter' => $flatsFilter,
+      'options'=> $options
+    ];
+      return view('flatsResults', $flatsFilter);
   }
-
-
 }
