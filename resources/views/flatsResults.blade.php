@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}
+  ">
   <title>Document</title>
 </head>
 <body>
@@ -25,13 +27,20 @@
 
   <div class="wrapper d-flex">
     @if(!is_string($flatsFilter))
-      @foreach($flatsFilter as $flatfilter)
+      @foreach($flatsFilter as $key => $flatfilter)
         <ul class="card">
           <li>{{$flatfilter->title}}</li>
           <li>{{$flatfilter->address}}</li>
           <li>{{$flatfilter->city}}</li>
+          <li class="rooms">{{$flatfilter->rooms}}</li>
+          <li class="beds">{{$flatfilter->beds}}</li>
+          @foreach ($flatsFilter[$key]->options as $option)
+          <li class="options">{{$option->name}}</li>
+              
+          @endforeach      
         </ul>
       @endforeach
+      
     </div>
     @endif
     <script src="{{asset('js/app.js')}}" charset="utf-8"></script>

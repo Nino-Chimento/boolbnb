@@ -11,6 +11,16 @@ $(document).ready( function(){
             checkbox_value.push($(this).val());
         }
     });
-    console.log(checkbox_value);
+    $('.card .options').each(function(){
+      if(!checkbox_value.includes($(this).text())){
+        //$('.card').hide();
+        $(this).parent('ul').addClass('show');
+        console.log(checkbox_value.includes($(this).text()));
+      }
+      
+      
+
+    });
+
     });
   })
