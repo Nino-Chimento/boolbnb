@@ -19,9 +19,9 @@
       <input type="checkbox" class="nino" name="chkbox" value="{{$option->name}}" />
     @endforeach
     <label for="rooms">Rooms</label>
-    <input type="number" class="rooms" name="rooms" min="1" max="15" value="">
+  <input type="number" class="rooms" name="formrooms" min="1" max="15" value="">
     <label for="beds">Beds</label>
-    <input type="number" class="beds" name="beds" min="1" max="15" value="">
+    <input type="number" class="beds" name="formbeds" min="1" max="15" value="">
     <button type="button" class="search" name="button">Cerca</button>
   </form>
 
@@ -32,8 +32,8 @@
           <li>{{$flatfilter->title}}</li>
           <li>{{$flatfilter->address}}</li>
           <li>{{$flatfilter->city}}</li>
-          <li class="rooms">{{$flatfilter->rooms}}</li>
-          <li class="beds">{{$flatfilter->beds}}</li>
+          <li class="htmlrooms">{{$flatfilter->rooms}}</li>
+          <li class="htmlbeds">{{$flatfilter->beds}}</li>
           @foreach ($flatsFilter[$key]->options as $option)
           <li class="options">{{$option->name}}</li>
               
