@@ -37060,8 +37060,8 @@ $(document).ready(function () {
     var beds = parseInt($('.beds').val());
     var checkbox_value = [];
     var total = checkbox_value;
-    $("input[name=chkbox]").each(function () {
-      var ischecked = $(this).is(":checked");
+    $('input[name=chkbox]').each(function () {
+      var ischecked = $(this).is(':checked');
 
       if (ischecked) {
         checkbox_value.push($(this).val());
@@ -37089,6 +37089,33 @@ $(document).ready(function () {
         } else {
           $(this).hide();
         }
+      }
+    });
+  });
+  $('#pippo').click(function () {
+    var name = $('.message_name').val();
+    var mail = $('.message_mail').val();
+    var request = $('.message_request').val();
+    var id = $('.hidden').val();
+    console.log(id);
+    $.ajax({
+      url: "http://127.0.0.1:8000/api/message",
+      method: 'POST',
+      data: {
+        name: name,
+        mail: mail,
+        request: request,
+        id: id
+      },
+      success: function success(data) {
+        if (data) {
+          $('h1').append('messaggio inviato con successo');
+        } else {
+          $('h1').append('messaggio non inviato');
+        }
+      },
+      error: function error() {
+        alert("Chiamata fallita!!!");
       }
     });
   });
@@ -37159,8 +37186,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\simon\Documents\boolean\esercitazioni\php\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\simon\Documents\boolean\esercitazioni\php\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Utente\Desktop\manuela-trotta\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\manuela-trotta\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

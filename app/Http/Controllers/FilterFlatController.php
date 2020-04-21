@@ -3,11 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
 use App\Flat;
 use App\Option;
 
-class FilterFlatController extends Controller
-{
+class FilterFlatController extends Controller{
+
+  function welcome() {
+    $flats = Flat::inRandomOrder()->limit(10)->get();
+    return view('welcome', compact('flats'));
+  }
+
+  public function showflat($id)
+  {
+      //$flat = Flat::where('slug', $slug)->first();
+      $flat = Flat::where('id', $id)->first();
+      return view('showflat', compact('flat'));
+
+  }
+
+
   function distance($lat1, $lon1, $latitude, $longitude, $unit){
             //longitudine e latitudine in radianti
             //angolo ϑ con l'asse x in un piano-xy in coordinate (longitudine e latitudine)

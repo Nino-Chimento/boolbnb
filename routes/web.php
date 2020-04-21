@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome', 'FilterFlatController@showtop')->name('showtop');
+//});
+
+Route::get('/','FilterFlatController@welcome')->name('welcome');
+
+Route::get('showflat/flats/{flat}','FilterFlatController@showflat')->name('showflat');
+
+
+
 //inserieamo le rotte admin
 Auth::routes();
 Route::name('admin.')->namespace('Admin')->middleware('auth')->prefix('admin')->group(function () {

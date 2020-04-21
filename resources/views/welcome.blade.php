@@ -98,12 +98,29 @@
             </div>
 
              {{-- wrap per slider img --}}
-
-
+             <table class="table">
+               <thead>
+                 <tr>
+                   <th>Title</th>
+                   <th>City</th>
+                   <th>View</th>
+                   <th colspan="3"></th>
+                 </tr>
+               </thead>
+               <tbody>
+                 @foreach ($flats as $flat)
+                   <tr>
+                     <td>{{$flat->title}}</td>
+                     <td>{{$flat->address}}</td>
+                     <td><a class="btn btn-primary" href="{{(route('showflat', $flat->id))}}">View</a> </td>
+                   </tr>
+                 @endforeach
+               </tbody>
+             </table>
+           </div>
 
 
              {{-- div con casa a card --}}
          </div>
-        <script src=" {{asset("js/app.js")}}"></script>
     </body>
 </html>

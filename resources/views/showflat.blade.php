@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
   <div class="container">
-    <a href="{{route('admin.flats.index')}}">Home</a>
+     <a href="{{route('welcome')}}">Home</a>
     <div class="row">
       <h1>Yours apartments</h1>
       <table class="table">
@@ -40,11 +40,6 @@
             <td>{{$flat->bathrooms}}</td>
             <td>{{$flat->mq}}</td>
             <td>{{$flat->city}}</td>
-              @foreach ($flat->messages as $message)
-                {{$message->name}}
-                {{$message->email}}
-                {{$message->message}}
-              @endforeach
             @foreach ($flat->options as $option)
               @if ($flat->options->contains($option->id))
                 <td>Yes</td>
@@ -53,8 +48,20 @@
           </tr>
         </thead>
       </table>
-
-      </div>
     </div>
+    <div>
+
+      <label>name</label>
+      <input class="message_name" type="text">
+      <input class="hidden" type="hidden" name="" value="{{$flat->id}}">
+      <label for="mail">mail</label>
+      <input class="message_mail" type="text" name="mail">
+      <textarea class="message_request" name="request" rows="8" cols="80" placeholder="insert your message"></textarea>
+    <button id="pippo">send</button>
   </div>
+  </div>
+  <div class="prova">
+
+  </div>
+
 @endsection
