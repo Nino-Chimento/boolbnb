@@ -30,3 +30,6 @@ Route::name('admin.')->namespace('Admin')->middleware('auth')->prefix('admin')->
    });
 
 Route::get('search','FilterFlatController@filterPosition')->name('search');
+
+// processo di pagamento
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
