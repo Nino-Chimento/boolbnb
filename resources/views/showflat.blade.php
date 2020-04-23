@@ -1,4 +1,7 @@
 @extends('layouts.app')
+<!-- script -->
+<script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.37.2/maps/maps-web.min.js'></script>
+
 @section('content')
   <div class="container">
      <a href="{{route('welcome')}}">Home</a>
@@ -60,8 +63,10 @@
     <button id="pippo">send</button>
   </div>
   </div>
-  <div class="prova">
-
+  <div id="map"></div>
+  <div class="cordinate hidden">
+    <p class="lat">{{$flat->latitude}}</p>
+    <p class="log">{{$flat->longitude}}</p>
   </div>
-
+<script src="{{ asset('js/map.js') }}"></script>
 @endsection

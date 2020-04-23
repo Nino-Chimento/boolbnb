@@ -70,7 +70,9 @@ class FlatController extends Controller
          }
          $request->validate($this->validationFlatCreate);
          $data = $request->All();
-         $options= $data['options'];
+         if(!empty($options)){
+           $options= $data['options'];
+          }
          if(!empty($options)){
            for ($i=0; $i < count($options); $i++) {
                  $request->validate([
@@ -97,7 +99,9 @@ class FlatController extends Controller
         $newFlat->save();
         if($newFlat->save())
         {
+          if(!empty($options)){
             $newFlat->options()->attach($options);
+           }
             $slug = $newFlat->slug;
             return redirect()->route('admin.flats.show', [$slug]);
         }
