@@ -27,6 +27,8 @@ Route::get('showflat/flats/{flat}','FilterFlatController@showflat')->name('showf
 Auth::routes();
 Route::name('admin.')->namespace('Admin')->middleware('auth')->prefix('admin')->group(function () {
     Route::resource('flats','FlatController');
+    Route::get("sponsor/flats/{flat}", "FlatController@showSponsor")->name("sponsor");
+    Route::post("sponsor/flats/pay", "FlatController@pay")->name("pay");
    });
 
 Route::get('search','FilterFlatController@filterPosition')->name('search');

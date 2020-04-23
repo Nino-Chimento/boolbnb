@@ -209,4 +209,16 @@ class FlatController extends Controller
         $flats = Flat::where('user_id', Auth::id())->get();
         return view('admin.index', compact('flats'));
     }
+
+    public function showSponsor($id){
+        $flat = Flat::where("id",$id)->first();
+        
+        return view("admin.sponsor",compact("flat"));
+    }
+
+    public function pay(Request $request){
+        $flat = Flat::where("id", $request->id)->first();
+        $flat->advertisings()->attach($request->payment);
+        return redirect()->route("admin.flats.index");
+    }
 }

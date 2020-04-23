@@ -2,6 +2,7 @@
 @section('content')
   <div class="container">
     <a href="{{route('admin.flats.index')}}">Home</a>
+    <a href="{{route("admin.sponsor",$flat->id)}}">Sponsorizza l'appartamento</a>
     <div class="row">
       <h1>Yours apartments</h1>
       <table class="table">

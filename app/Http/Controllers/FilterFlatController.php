@@ -11,7 +11,27 @@ use App\Option;
 class FilterFlatController extends Controller{
 
   function welcome() {
-    $flats = Flat::inRandomOrder()->limit(10)->get();
+    // $flats = Flat::inRandomOrder()->limit(10)->get();
+    $flats = Flat::all();
+    $flatsSponsor = [];
+    foreach ($flats as $flat) {
+      
+      if(count($flat->advertisings) > 0){
+        
+         $flatsSponsor[] = $flat;
+        }
+    }
+    foreach ($flatsSponsor as $sponsor) {
+      
+      if($sponsor->advertisings[0]->price > $flatsSponsor[0]->advertisings[0]->price ){
+        // controlliamo il prezzo e se maggiore lo mettiamo in prima posizione
+        array_unshift($flatsSponsor, $sponsor);
+      }
+    }
+    
+  
+    
+    $flats = $flatsSponsor;
     return view('welcome', compact('flats'));
   }
 
