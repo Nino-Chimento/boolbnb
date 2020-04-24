@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Flat;
 use App\Option;
 use App\View;
+use Illuminate\Support\Carbon;
 
 class FilterFlatController extends Controller{
 
@@ -59,6 +60,8 @@ class FilterFlatController extends Controller{
         $request->session()->push('flats', $id);
         $newView = new View;
         $newView->flat_id = $id;
+        $newView->date = Carbon::today()->toDateString();
+        
         $newView->save();
       }
       //prima visualizzazione
@@ -67,6 +70,8 @@ class FilterFlatController extends Controller{
       $request->session()->push('flats', $id);
       $newView = new View;
       $newView->flat_id = $id;
+      $newView->date = Carbon::today()->toDateString();
+      
       $newView->save();
     }
     $flat = Flat::where('id', $id)->first();
