@@ -81,62 +81,55 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/map.js":
-/*!*****************************!*\
-  !*** ./resources/js/map.js ***!
-  \*****************************/
+/***/ "./resources/js/graphic.js":
+/*!*********************************!*\
+  !*** ./resources/js/graphic.js ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  // Definisco una variabile con le cordinate di longitudine e latitudine dell'appartamento
-  var lat = $(".lat").text();
-  var lon = $(".log").text();
-  var address = $(".address").text();
-  var cordinateAppartamento = {
-    'lat': lat,
-    'lon': lon
-  };
-  var map = tt.map({
-    container: "map",
-    key: "jmSHc4P5sMLTeiGeWWoRL81YcCxYxqGp",
-    style: "tomtom://vector/1/basic-main",
-    center: cordinateAppartamento,
-    zoom: 15
-  }); //Aggiungo un punto d'interesse all'interno della mappa
-
-  var marker = new tt.Marker().setLngLat(cordinateAppartamento).addTo(map); //Aggiungo un pop up all'interno della mappa
-  // var popupOffsets = {
-  //   top: [0, 0],
-  //   bottom: [0, -70],
-  //   "bottom-right": [0, -70],
-  //   "bottom-left": [0, -70],
-  //   left: [25, -35],
-  //   right: [-25, -35]
-  // };
-  // //Aggiungo le informazioni del nostro appartamento
-  // var popup = new tt.Popup({
-  //   offset: popupOffsets
-  // }).setHTML(
-  //   address
-  // );
+  var ctx = $('#myChart');
+  var ctx = document.getElementById('myChart');
+  var myChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: {
+      labels: ['Gennaio', 'feebraio', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [0, 19, 3, 5, 2, 3],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 });
 
 /***/ }),
 
-/***/ 1:
-/*!***********************************!*\
-  !*** multi ./resources/js/map.js ***!
-  \***********************************/
+/***/ 2:
+/*!***************************************!*\
+  !*** multi ./resources/js/graphic.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\sanin\Desktop\boolean\boolbnb\resources\js\map.js */"./resources/js/map.js");
+module.exports = __webpack_require__(/*! C:\Users\sanin\Desktop\boolean\boolbnb\resources\js\graphic.js */"./resources/js/graphic.js");
 
 
 /***/ })

@@ -7,8 +7,10 @@ use App\Option;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
 
 class FlatController extends Controller
 {
@@ -36,6 +38,7 @@ class FlatController extends Controller
         // $flats = Flat::all()->where('user_id', $user_id)->first();
         //abbreviazione chiamata per id
         //controlliamo se l'utente e loggato e mostriamo solo i suoi contenuti
+       
         $auth_id=Auth::id();
         if(empty($auth_id)){
             abort('404','id utente non trovato');
@@ -71,8 +74,12 @@ class FlatController extends Controller
          }
          $request->validate($this->validationFlatCreate);
          $data = $request->All();
-        
-         $path = Storage::disk('public')->put('images',$data['img']);
+         if(isset($data['img'])){
+             $path = Storage::disk('public')->put('images',$data['img']);
+            }else{
+                $path = "";
+            }
+
          
          if(!empty($options)){
            $options= $data['options'];
@@ -124,9 +131,17 @@ class FlatController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
-    {
+    {   
         $flat = Flat::where('slug', $slug)->first();
-        return view('admin.show', compact('flat'));
+        // dd(Carbon::yesterday()->toDateString());
+       
+        $view = View::where('created_at', '>', date(Carbon::now()->subDays(7)->toDateString()))
+        ->where("flat_id", "=", $flat->id)->get();
+        $data = [
+            "flat"=> $flat,
+            "view"=> $view
+        ];
+        return view('admin.show', $data);
 
     }
 
@@ -162,8 +177,11 @@ class FlatController extends Controller
     {
         $request->validate($this->validationFlatCreate);
         $data= $request->all();
-        $options= $data['options'];
-
+        if(!empty($data['options'])){
+            $options = $data['options'];
+        }
+        
+        //sostituisco le opzioni
         if(!empty($options)){
             for ($i=0; $i < count($options); $i++) {
                 $request->validate([
@@ -178,12 +196,20 @@ class FlatController extends Controller
         if(empty($position->results)) {
           return redirect()->back()->with('success');
         }
+        // sostitusico i vecchi valori
         $latitude = $position->results[0]->position->lat;
         $longitude = $position->results[0]->position->lon;
         $flat= Flat::where('slug', $slug)->first();
+        if (!empty($data["img"])) {
+            $path = Storage::disk('public')->put('images', $data['img']);
+            $flat->img = $path;
+        }
         $flat->latitude = $latitude;
         $flat->longitude = $longitude;
-        $flat->options()->sync($options);
+        if(!empty($options)){
+            $flat->options()->sync($options);
+        }
+       
         $flat->update($data);
         if(!$flat->update()){
             return redirect()->back();

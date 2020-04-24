@@ -12,7 +12,7 @@
       </ul>
     </div>
   @endif
-  <form action=" {{(!empty($flat)) ? route('admin.flats.update', $flat->slug) : route('admin.flats.store')}}" method='post'>
+  <form action=" {{(!empty($flat)) ? route('admin.flats.update', $flat->slug) : route('admin.flats.store')}}" method='post' enctype="multipart/form-data">
     {{-- è importante che questi token siano dentro il form --}}
     @csrf
     @if(!empty($flat))
@@ -74,7 +74,9 @@
         <option value="1">Yes</option>
       </select>
     </div>
-
+    <div>
+        <input type="file" name="img" id="">
+    </div>
     <div class="form-group">
       <label for="options">Additional services</label>
       @foreach ($options as $option)

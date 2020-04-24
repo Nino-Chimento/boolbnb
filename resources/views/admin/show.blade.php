@@ -1,4 +1,5 @@
 @extends('layouts.app')
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 @section('content')
   <div class="container">
     <a href="{{route('admin.flats.index')}}">Home</a>
@@ -57,5 +58,9 @@
       <img src="{{asset("storage/".$flat->img)}}" alt="">
       </div>
     </div>
+    <div class="grafico" style="width: 400px;height: 400px;">
+        <canvas id="myChart" width="200" height="200"></canvas>
+     </div>
   </div>
+  <script src="{{asset("js/graphic.js")}}"></script>
 @endsection

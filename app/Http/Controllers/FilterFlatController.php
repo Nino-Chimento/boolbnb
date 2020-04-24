@@ -7,12 +7,14 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Flat;
 use App\Option;
+use App\View;
 
 class FilterFlatController extends Controller{
 
   function welcome() {
     // $flats = Flat::inRandomOrder()->limit(10)->get();
-    $flats = Flat::all();
+        $flats = Flat::where("published",1);
+    
     $flatsSponsor = [];
     foreach ($flats as $flat) {
       
@@ -32,16 +34,49 @@ class FilterFlatController extends Controller{
   
     
     $flats = $flatsSponsor;
+    for ($i=count($flats); $i <= 10 ; $i++) { 
+      $flat = Flat::InRandomOrder()->first();
+      if(in_array($flat, $flats)){
+        $i--;
+      } else{
+        $flats[] = $flat;
+      }
+     
+    }
+
     return view('welcome', compact('flats'));
   }
 
-  public function showflat($id)
-  {
-      //$flat = Flat::where('slug', $slug)->first();
-      $flat = Flat::where('id', $id)->first();
-      return view('showflat', compact('flat'));
+  public function showflat(Request $request,$id){
+   
+    $data = $request->session()->all();
+    //creiamo un booleano per far partire sempre else in modo da creare la priam volta array con $id
+    //
+    
+    if(isset($data["flats"])){
+      if(!in_array($id, $data["flats"])){
+         //creiamo un array nella sessione dove mettiamo ogni volta l'id della casa visitata
+        $request->session()->push('flats', $id);
+        $newView = new View;
+        $newView->flat_id = $id;
+        $newView->save();
+      }
+      //prima visualizzazione
+    }else{
+       //creiamo un array nella sessione dove mettiamo ogni volta l'id della casa visitata
+      $request->session()->push('flats', $id);
+      $newView = new View;
+      $newView->flat_id = $id;
+      $newView->save();
+    }
+    $flat = Flat::where('id', $id)->first();
+    return view('showflat', compact('flat'));
 
-  }
+ }
+
+    
+    
+     
 
 
   function distance($lat1, $lon1, $latitude, $longitude, $unit){
