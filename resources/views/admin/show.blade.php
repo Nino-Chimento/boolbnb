@@ -54,7 +54,7 @@
           </tr>
         </thead>
       </table>
-
+      <img src="{{asset("storage/".$flat->img)}}" alt="">
       </div>
     </div>
   </div>

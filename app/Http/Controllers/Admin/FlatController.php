@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FlatController extends Controller
 {
@@ -70,6 +71,9 @@ class FlatController extends Controller
          }
          $request->validate($this->validationFlatCreate);
          $data = $request->All();
+        
+         $path = Storage::disk('public')->put('images',$data['img']);
+         
          if(!empty($options)){
            $options= $data['options'];
           }
@@ -91,11 +95,12 @@ class FlatController extends Controller
         $longitude = $position->results[0]->position->lon;
         $newFlat = new Flat;
         $newFlat->fill($data);
+        $newFlat->img = $path;
         $newFlat->user_id = $user_id;
         $newFlat->latitude = $latitude;
         $newFlat->longitude = $longitude;
         $newFlat->slug = Str::finish(Str::slug($newFlat->title),rand(1, 1000000));
-
+       
         $newFlat->save();
         if($newFlat->save())
         {

@@ -19,7 +19,7 @@
           </ul>
         </div>
       @endif
-      <form action="{{route('admin.flats.store')}}" method="post">
+      <form action="{{route('admin.flats.store')}}" method="post" enctype="multipart/form-data">
         {{-- è importante che questi token siano dentro il form --}}
         @csrf
         @method('POST')
@@ -71,7 +71,9 @@
             <option value="1">Si</option>
           </select>
         </div>
-
+        <div>
+           <input type="file" name="img" id="">
+        </div>
         <div class="form-group">
           <label for="options">Additional services</label>
           @foreach ($options as $option)
