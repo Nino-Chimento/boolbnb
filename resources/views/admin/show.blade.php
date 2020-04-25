@@ -35,6 +35,7 @@
         </thead>
         <thead>
           <tr>
+            <td class="hidden">{{$flat->id}}</td>
             <td>{{$flat->title}}</td>
             <td>{{$flat->address}}</td>
             <td>{{$flat->summary}}</td>

@@ -134,19 +134,19 @@ class FlatController extends Controller
     {   
         $flat = Flat::where('slug', $slug)->first();
         // dd(Carbon::yesterday()->toDateString());
-        for ($i = 0; $i < 7; $i++) {
-            # code...
-            $view[Carbon::now()->subDays($i)->toDateString()] = View::where('date', '=', Carbon::now()->subDays($i)->toDateString())
-                ->where("flat_id", "=", $flat->id)->get()->count();
-        }
-        ;
+        // for ($i = 0; $i < 7; $i++) {
+        //     # code...
+        //     $view[Carbon::now()->subDays($i)->toDateString()] = View::where('date', '=', Carbon::now()->subDays($i)->toDateString())
+        //         ->where("flat_id", "=", $flat->id)->get()->count();
+        // }
+        // ;
         // dd($date->created_at);
-        dd($view);
-        $data = [
-            "flat"=> $flat,
-            "view"=> $view
-        ];
-        return view('admin.show', $data);
+        // dd($view);
+        // $data = [
+        //     "flat"=> $flat,
+        //     "view"=> $view
+        // ];
+        return view('admin.show', compact("flat"));
 
     }
 
