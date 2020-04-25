@@ -1,0 +1,27 @@
+.wrap-footer {
+    width: 80%;
+    margin: auto;
+    div{
+        width: 30%;
+    }
+    h5{
+        color: rgb(239, 39, 86);
+    }
+    ul{
+     list-style: none;
+    
+     li{
+         padding-top: 10px;
+     }
+     a{
+         color: black;
+         text-decoration: none;
+         &:hover{
+             color: saturation($color:#222222);
+         }
+     }   
+    }
+}
+ .brand{
+       font-size: 40px;
+    }
