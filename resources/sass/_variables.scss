@@ -7,6 +7,8 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Colors
+$primaryColor: rgb(239, 39, 86); //colore principale sito
+$generalBackground: #f8fafc;
 $blue: #3490dc;
 $indigo: #6574cd;
 $purple: #9561e2;
@@ -17,3 +19,7 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+
+// Commons
+$boxShadow: 0px 1px 2px rgba(0, 0, 0, 0.18);

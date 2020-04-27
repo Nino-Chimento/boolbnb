@@ -136,7 +136,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\sanin\Desktop\boolean\boolbnb\resources\js\map.js */"./resources/js/map.js");
+module.exports = __webpack_require__(/*! C:\Users\giuse\Desktop\Boolean\boolbnb\resources\js\map.js */"./resources/js/map.js");
 
 
 /***/ })

@@ -150,7 +150,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\sanin\Desktop\boolean\boolbnb\resources\js\graphic.js */"./resources/js/graphic.js");
+module.exports = __webpack_require__(/*! C:\Users\giuse\Desktop\Boolean\boolbnb\resources\js\graphic.js */"./resources/js/graphic.js");
 
 
 /***/ })

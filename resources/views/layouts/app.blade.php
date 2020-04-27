@@ -18,10 +18,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    
+
     {{-- FontAwesome --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-   
+
     <!-- Favicon Airbnb -->
     <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
 
@@ -31,7 +31,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    <span><i class="fab fa-airbnb"></i></span><span>{{ config('app.name', 'Laravel') }}
                 <img src="" alt=""></a></span>
@@ -85,5 +85,4 @@
             @yield('content')
         </main>
     </div>
-@include('partials.footer')    
-
+@include('partials.footer')

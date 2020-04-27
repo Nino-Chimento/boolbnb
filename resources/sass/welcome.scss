@@ -1,0 +1,30 @@
+.search_bar {
+  width: 100%;
+  padding: 10px;
+  .search_width {
+    width: 30%;
+    height: 60px;
+    border-radius: 14px;
+    border: 2px solid lightgrey;
+    box-shadow: $boxShadow;
+    &:hover {
+      border: 2px solid black;
+    }
+  }
+  .btn {
+    background-color: $primaryColor;
+    height: 60px;
+    width: 8%;
+    border-radius: 14px;
+    color: white;
+  }
+}
+
+.wrapper_jumbo {
+  width: 100%;
+  background-color: $generalBackground;
+  .img_resp {
+    border: 3px solid $primaryColor;
+    height: 76vh;
+  }
+}
