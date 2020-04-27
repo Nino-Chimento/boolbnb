@@ -20,48 +20,51 @@
         </div>
       </div>
 
-      <div class="wrapper_jumbo">
-        <div class="d-flex justify-content-center">
-          <div class="row">
-              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item relative text-center background_image active">
-                    <h2 class="h2_title text-center">Vivi un'esperienza indimenticabile</h2>
-                    <img class="img_resp" src="https://3.bp.blogspot.com/-oh2M6_vDM7E/VCwCW8Fc2FI/AAAAAAAAItE/RPNNuXo1U9M/s1600/happy-people-2.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item  relative text-center">
-                    <h2 class="h2_title text-center">Vivi un'esperienza indimenticabile</h2>
-                    <img class="img_resp" src="https://cdn.wallpapersafari.com/32/21/lIXz24.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item relative text-center">
-                    <h2 class="h2_title text-center">Vivi un'esperienza indimenticabile</h2>
-                    <img class="img_resp" src="https://www.happy-caps.nl/wp-content/uploads/2018/01/energy-e-slider-1600x1000-3.jpg" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-          </div>
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            @foreach ($flats as $key => $flat)
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{$key + 1}}"></li>
+            @endforeach
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="height_img d-block w-100" src="https://www.consul-group.it/wp-content/uploads/2019/02/Come-promesso-ecco-le-3-abilita-segrete-delle-persone-felici.jpg" alt="First slide">
+            </div>
+            @foreach ($flats as $flat)
+            <div class="carousel-item">
+                <img class="height_img d-block w-100" src="{{$flat->img}}" alt="Second slide">
+            </div>
+            @endforeach
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        </a>
+    </div>
+
+    <div class="container">
+      <div class="row d-flex justify-content-center mt-5 ">
+        @foreach ($flats as $flat)
+        <a class="card_style" href="{{(route('showflat', $flat->id))}}">
+          <div class="card m-2" style="width: 20rem; height: 380px;">
+            <img src="{{$flat->img}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-uppercase font-weight-bold">{{$flat->title}}</h5>
+              <h6 class="card-address font-weight-light">{{$flat->address}}</h6>
+              <p class="card-text text-truncate font-italic">{{$flat->summary}}</p>
+            </div>
+          </div>
+        </a>
+        @endforeach
       </div>
-
-
+    </div>
 
 
 
     {{-- wrap per slider img --}}
-    <table class="table">
+    {{-- <table class="table">
         <thead>
             <tr>
             <th>Title</th>
@@ -79,6 +82,6 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
+    </table> --}}
 
 @endsection

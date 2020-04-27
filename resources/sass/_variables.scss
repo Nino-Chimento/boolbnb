@@ -23,3 +23,12 @@ $cyan: #6cb2eb;
 
 // Commons
 $boxShadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+
+@mixin button {
+  background-color: $primaryColor;
+  color: white;
+  &:hover {
+    background-color: pink;
+    color: black;
+  }
+}

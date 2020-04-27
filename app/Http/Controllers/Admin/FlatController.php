@@ -38,7 +38,7 @@ class FlatController extends Controller
         // $flats = Flat::all()->where('user_id', $user_id)->first();
         //abbreviazione chiamata per id
         //controlliamo se l'utente e loggato e mostriamo solo i suoi contenuti
-       
+
         $auth_id=Auth::id();
         if(empty($auth_id)){
             abort('404','id utente non trovato');
@@ -80,17 +80,17 @@ class FlatController extends Controller
                 $path = "";
             }
 
-         
-         if(!empty($options)){
+
+         // if(!empty($options)){
            $options= $data['options'];
-          }
-         if(!empty($options)){
-           for ($i=0; $i < count($options); $i++) {
-                 $request->validate([
-                    $options[$i]=>'exists:App\Option,id'
-                ]);
-            }
-         }
+         //  }
+         // if(!empty($options)){
+         //   for ($i=0; $i < count($options); $i++) {
+         //         $request->validate([
+         //            $options[$i]=>'exists:App\Option,id'
+         //        ]);
+         //    }
+         // }
         $address =  str_replace(' ','&', $data['address']);
         $city =  str_replace(' ','&', $data['city']);
         $url = 'https://api.tomtom.com/search/2/geocode/'.$address.'&'.$city.'.json?limit=1&key=fWpjrvAGyfhbJRWFkaCXPHgnlu9PL5Fp';
@@ -107,13 +107,12 @@ class FlatController extends Controller
         $newFlat->latitude = $latitude;
         $newFlat->longitude = $longitude;
         $newFlat->slug = Str::finish(Str::slug($newFlat->title),rand(1, 1000000));
-       
+
         $newFlat->save();
         if($newFlat->save())
         {
-          if(!empty($options)){
             $newFlat->options()->attach($options);
-           }
+
             $slug = $newFlat->slug;
             return redirect()->route('admin.flats.show', [$slug]);
         }
@@ -131,7 +130,7 @@ class FlatController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
-    {   
+    {
         $flat = Flat::where('slug', $slug)->first();
         // dd(Carbon::yesterday()->toDateString());
         // for ($i = 0; $i < 7; $i++) {
@@ -185,7 +184,7 @@ class FlatController extends Controller
         if(!empty($data['options'])){
             $options = $data['options'];
         }
-        
+
         //sostituisco le opzioni
         if(!empty($options)){
             for ($i=0; $i < count($options); $i++) {
@@ -214,7 +213,7 @@ class FlatController extends Controller
         if(!empty($options)){
             $flat->options()->sync($options);
         }
-       
+
         $flat->update($data);
         if(!$flat->update()){
             return redirect()->back();
@@ -248,7 +247,7 @@ class FlatController extends Controller
 
     public function showSponsor($id){
         $flat = Flat::where("id",$id)->first();
-        
+
         return view("admin.sponsor",compact("flat"));
     }
 

@@ -10941,18 +10941,9 @@ input::placeholder {
   padding-left: 50px;
 }
 
-.relative {
-  position: relative;
-}
-
-.relative .h2_title {
-  position: absolute;
-  left: 23%;
-  bottom: 10%;
-  color: #ef2756;
-  font-size: 40px;
-  text-shadow: 10px 10px 10px black;
-  font-weight: bold;
+#host:hover {
+  background: pink;
+  color: black;
 }
 
 .search_bar {
@@ -10974,20 +10965,92 @@ input::placeholder {
 
 .search_bar .btn {
   background-color: #ef2756;
+  color: white;
   height: 60px;
   width: 8%;
   border-radius: 14px;
+}
+
+.search_bar .btn:hover {
+  background-color: pink;
+  color: black;
+}
+
+#carouselExampleIndicators {
+  width: 90%;
+  margin: 0 auto;
+  background-color: lightgrey;
+}
+
+.height_img {
+  height: 77vh;
+}
+
+.width_card {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.card_style {
+  color: black;
+}
+
+.card_style:hover {
+  text-decoration: none;
+  color: #ef2756;
+  border: solid 2px #ef2756;
+  border-radius: 4px;
+}
+
+.card_style .card {
+  overflow: hidden;
+}
+
+.home {
+  background-color: #ef2756;
   color: white;
 }
 
-.wrapper_jumbo {
-  width: 100%;
-  background-color: #f8fafc;
+.home:hover {
+  background-color: pink;
+  color: black;
 }
 
-.wrapper_jumbo .img_resp {
-  border: 3px solid #ef2756;
-  height: 76vh;
+.appartament {
+  text-align: center;
+}
+
+.appartament .img_width {
+  max-width: 100%;
+  width: 50%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.border-right {
+  border-right: 1px solid grey;
+}
+
+.flex_option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.option li {
+  display: inline;
+  margin-left: 10px;
+}
+
+.btn {
+  background-color: #ef2756;
+  color: white;
+}
+
+.btn:hover {
+  background-color: pink;
+  color: black;
 }
 
 .wrap-footer {
@@ -11022,5 +11085,9 @@ input::placeholder {
 
 .brand {
   font-size: 40px;
+}
+
+.icons:hover {
+  color: #ef2756;
 }
 

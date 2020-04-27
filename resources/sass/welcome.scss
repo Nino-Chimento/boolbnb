@@ -12,19 +12,41 @@
     }
   }
   .btn {
-    background-color: $primaryColor;
+    @include button;
     height: 60px;
     width: 8%;
     border-radius: 14px;
-    color: white;
   }
 }
 
-.wrapper_jumbo {
-  width: 100%;
-  background-color: $generalBackground;
-  .img_resp {
-    border: 3px solid $primaryColor;
-    height: 76vh;
+
+#carouselExampleIndicators {
+  width: 90%;
+  margin: 0 auto;
+  background-color: lightgrey;
+}
+
+.height_img {
+  height: 77vh;
+}
+
+.width_card {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+
+.card_style{
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: $primaryColor;
+    border: solid 2px $primaryColor;
+    border-radius: 4px;
+  }
+  .card {
+    overflow: hidden;
+
   }
 }

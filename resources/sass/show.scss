@@ -1,0 +1,32 @@
+
+.home {
+  @include button;
+  }
+  .appartament {
+    text-align: center;
+    .img_width {
+      max-width: 100%;
+      width: 50%;
+      height: auto;
+      margin-top: 20px;
+    }
+  }
+
+.border-right {
+  border-right: 1px solid grey;
+}
+
+.flex_option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.option li {
+  display: inline;
+  margin-left: 10px;
+}
+
+.btn {
+  @include button;
+}

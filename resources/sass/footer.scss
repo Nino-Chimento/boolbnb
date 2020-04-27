@@ -5,11 +5,11 @@
         width: 30%;
     }
     h5{
-        color: rgb(239, 39, 86);
+        color: $primaryColor;
     }
     ul{
      list-style: none;
-    
+
      li{
          padding-top: 10px;
      }
@@ -19,9 +19,13 @@
          &:hover{
              color: saturation($color:#222222);
          }
-     }   
+     }
     }
 }
- .brand{
-       font-size: 40px;
-    }
+.brand{
+   font-size: 40px;
+}
+
+.icons:hover {
+  color: $primaryColor;
+}

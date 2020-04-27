@@ -1,3 +1,4 @@
+
 .navbar-brand {
 
     span{
@@ -25,15 +26,8 @@ input::placeholder {
   padding-left: 50px;
 }
 
-.relative {
-  position: relative;
-  .h2_title {
-    position: absolute;
-    left: 23%;
-    bottom: 10%;
-    color: #ef2756;
-    font-size: 40px;
-    text-shadow: 10px 10px 10px black;
-    font-weight: bold;
-  }
+
+#host:hover {
+  background: pink;
+  color: black;
 }

@@ -11,10 +11,10 @@
     <div class="brand-footer">
         <ul class="brand  d-flex justify-content-between">
 
-            <li><span><i class="fab fa-facebook-square"></i></span></li>
-            <li><span><i class="fab fa-instagram-square"></i></span></li>
-            <li><span><i class="fab fa-twitter-square"></i></span></li>
-            <li><span><i class="fab fa-youtube-square"></i></span></li>
+            <li><span><i class="fab fa-facebook-square icons"></i></span></li>
+            <li><span><i class="fab fa-instagram-square icons"></i></span></li>
+            <li><span><i class="fab fa-twitter-square icons"></i></span></li>
+            <li><span><i class="fab fa-youtube-square icons"></i></span></li>
         </ul>
             
     </div>
