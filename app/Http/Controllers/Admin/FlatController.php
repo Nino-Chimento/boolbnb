@@ -79,10 +79,18 @@ class FlatController extends Controller
             }else{
                 $path = "";
             }
+        
+         $nino = isset($data['options']);   
+         if($nino){
+            
+             $options= $data['options'];
+            }else{
+                $options = [];
+            }
+             
 
 
          // if(!empty($options)){
-           $options= $data['options'];
          //  }
          // if(!empty($options)){
          //   for ($i=0; $i < count($options); $i++) {
