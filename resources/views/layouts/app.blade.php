@@ -33,8 +33,9 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   <span><i class="fab fa-airbnb"></i></span><span>{{ config('app.name', 'Laravel') }}
+                   <span><i class="fab fa-airbnb mr-2"></i></span><span>{{ config('app.name', 'Laravel') }}
                 <img src="" alt=""></a></span>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -47,6 +48,10 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                      <li><a class="btn m-3" href="{{route('welcome')}}">Home</a></li>
+                      <li><a class="btn m-3" href="{{route('admin.flats.index')}}">Dashboard</a></li>
+
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

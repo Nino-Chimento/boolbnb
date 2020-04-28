@@ -11008,6 +11008,10 @@ input::placeholder {
   overflow: hidden;
 }
 
+.form_flat {
+  border-radius: 5px;
+}
+
 .home {
   background-color: #ef2756;
   color: white;

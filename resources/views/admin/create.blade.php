@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
-
-  <a href="{{route('admin.flats.index')}}">Home</a>
-  <h1>Create a new apartment</h1>
+  <h1>Crea un nuovo Appartamento</h1>
   <div class="container">
     <div class="row">
           {{-- Stampa un errore se non inseriamo dei dati che non rispettino i criteri --}}
@@ -24,49 +21,49 @@
         @csrf
         @method('POST')
 
-        <div class="form-group">
-          <label for="title">Title</label>
+        <div class="form-group font-weight-bold">
+          <label for="title">Titolo</label>
           <input class="form-control" type="text" name="title">
         </div>
 
-        <div class="form-group">
-          <label for="summary">Description</label>
+        <div class="form-group font-weight-bold">
+          <label for="summary">Descrizione Appartamento</label>
           <textarea class="form-control" name="summary" id="summary" cols="30" rows="10"></textarea>
         </div>
 
-        <div class="form-group">
-          <label for="rooms">Rooms</label>
+        <div class="form-group font-weight-bold">
+          <label for="rooms">Stanze</label>
           <input class="form-control" type="number" name="rooms">
         </div>
 
-        <div class="form-group">
-          <label for="beds">Beds</label>
+        <div class="form-group font-weight-bold">
+          <label for="beds">Letti</label>
           <input class="form-control" type="number" name="beds">
         </div>
 
-        <div class="form-group">
-          <label for="address">Address</label>
+        <div class="form-group font-weight-bold">
+          <label for="address">Indirizzo</label>
           <input class="form-control" type="text" name="address">
         </div>
 
-        <div class="form-group">
-          <label for="city">City</label>
+        <div class="form-group font-weight-bold">
+          <label for="city">Città</label>
           <input class="form-control" type="text" name="city">
         </div>
 
-        <div class="form-group">
-          <label for="bathrooms">Bathrooms</label>
+        <div class="form-group font-weight-bold">
+          <label for="bathrooms">Bagni</label>
           <input class="form-control" type="number" name="bathrooms">
         </div>
 
-        <div class="form-group">
-          <label for="mq">Square meters</label>
+        <div class="form-group font-weight-bold">
+          <label for="mq">Metri Quadrati</label>
           <input class="form-control" type="number" name="mq">
         </div>
 
-        <div class="form-group">
-          <label for="published">Public</label>
-          <select name="published">
+        <div class="form-group form_flat">
+          <label class="font-weight-bold" for="published">Pubblica</label>
+          <select class="btn" name="published">
             <option value="0">No</option>
             <option value="1">Si</option>
           </select>
@@ -74,22 +71,22 @@
         <div>
            <input type="file" name="img" id="">
         </div>
-        <div class="form-group">
-          <label for="options">Additional services</label>
+        <div class="form-group  form-check-inline">
+          <label class="m-1" for="options">Servizi Aggiuntivi</label>
           @foreach ($options as $option)
-            <div>
+            <div class="p-2 font-weight-bold">
               @if ($option->name == "wifi")
                 <span>Wi-Fi</span>
               @elseif ($option->name == "parking")
-                <span>Parking</span>
+                <span>Parcheggio</span>
               @elseif ($option->name == "pool")
-                <span>Pool</span>
+                <span>Piscina</span>
               @elseif ($option->name == "reception")
                 <span>Reception</span>
               @elseif ($option->name == "sauna")
                 <span>Sauna</span>
               @elseif ($option->name == "sea_view")
-                <span>Sea view</span>
+                <span>Vista</span>
               @endif
               <input type="checkbox" name="options[]" value="{{$option->id}}">
             </div>

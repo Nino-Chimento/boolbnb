@@ -2,7 +2,6 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 @section('content')
   <div class="container">
-    <a class="btn m-3" href="{{route('admin.flats.index')}}">Home</a>
     <div class="row">
       <h1>Dettagli appartamento</h1>
       <table class="table text-nowrap">
@@ -57,8 +56,8 @@
         <div class="col-6">
           @foreach ($flat->messages as $message)
             <h3>da {{$message->name}}</h3>
-            <h6 class="text-weight-bold">Email: {{$message->email}}</h6>
-            <h6 class="mt-1">Messaggio:</h6>
+            <h6 class="font-weight-bold">Email: {{$message->email}}</h6>
+            <h6 class="mt-1 font-weight-bold">Messaggio Ricevuto:</h6>
             <div class="border border-dark " style="width: 250px; height:100px; border-radius:8px;">
               <h6 class="p-2">{{$message->message}}</h6>
             </div>
