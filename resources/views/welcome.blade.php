@@ -50,6 +50,8 @@
         <a class="card_style" href="{{(route('showflat', $flat->id))}}">
           <div class="card m-2" style="width: 20rem; height: 380px;">
             <img src="{{$flat->img}}" class="card-img-top" alt="...">
+            {{-- Aggiungi alle destinazioni il path --}}
+            {{-- <img src="{{$flat->img}}" class="card-img-top" alt="..."> --}}
             <div class="card-body">
               <h5 class="card-title text-uppercase font-weight-bold">{{$flat->title}}</h5>
               <h6 class="card-address font-weight-light">{{$flat->address}}</h6>

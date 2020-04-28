@@ -8,7 +8,6 @@
       max-width: 100%;
       width: 50%;
       height: auto;
-      margin-top: 20px;
     }
   }
 
@@ -26,6 +25,19 @@
   display: inline;
   margin-left: 10px;
 }
+
+h5 {
+  @include h5;
+}
+
+.features_list li{
+  list-style: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
 
 .btn {
   @include button;

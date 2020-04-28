@@ -15,45 +15,45 @@ class FilterFlatController extends Controller{
   function welcome() {
     // $flats = Flat::inRandomOrder()->limit(10)->get();
         $flats = Flat::where("published",1);
-    
+
     $flatsSponsor = [];
     foreach ($flats as $flat) {
-      
+
       if(count($flat->advertisings) > 0){
-        
+
          $flatsSponsor[] = $flat;
         }
     }
     foreach ($flatsSponsor as $sponsor) {
-      
+
       if($sponsor->advertisings[0]->price > $flatsSponsor[0]->advertisings[0]->price ){
         // controlliamo il prezzo e se maggiore lo mettiamo in prima posizione
         array_unshift($flatsSponsor, $sponsor);
       }
     }
-    
-  
-    
+
+
+
     $flats = $flatsSponsor;
-    for ($i=count($flats); $i <= 10 ; $i++) { 
+    for ($i=count($flats); $i <= 10 ; $i++) {
       $flat = Flat::InRandomOrder()->first();
       if(in_array($flat, $flats)){
         $i--;
       } else{
         $flats[] = $flat;
       }
-     
+
     }
 
     return view('welcome', compact('flats'));
   }
 
   public function showflat(Request $request,$id){
-   
+
     $data = $request->session()->all();
     //creiamo un booleano per far partire sempre else in modo da creare la priam volta array con $id
     //
-    
+
     if(isset($data["flats"])){
       if(!in_array($id, $data["flats"])){
          //creiamo un array nella sessione dove mettiamo ogni volta l'id della casa visitata
@@ -61,7 +61,7 @@ class FilterFlatController extends Controller{
         $newView = new View;
         $newView->flat_id = $id;
         $newView->date = Carbon::today()->toDateString();
-        
+
         $newView->save();
       }
       //prima visualizzazione
@@ -71,7 +71,7 @@ class FilterFlatController extends Controller{
       $newView = new View;
       $newView->flat_id = $id;
       $newView->date = Carbon::today()->toDateString();
-      
+
       $newView->save();
     }
     $flat = Flat::where('id', $id)->first();
@@ -79,9 +79,9 @@ class FilterFlatController extends Controller{
 
  }
 
-    
-    
-     
+
+
+
 
 
   function distance($lat1, $lon1, $latitude, $longitude, $unit){

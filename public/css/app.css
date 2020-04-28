@@ -10993,6 +10993,7 @@ input::placeholder {
 }
 
 .card_style {
+  margin-bottom: 20px;
   color: black;
 }
 
@@ -11025,7 +11026,6 @@ input::placeholder {
   max-width: 100%;
   width: 50%;
   height: auto;
-  margin-top: 20px;
 }
 
 .border-right {
@@ -11043,6 +11043,17 @@ input::placeholder {
   margin-left: 10px;
 }
 
+h5 {
+  color: #ef2756;
+  font-weight: bold;
+}
+
+.features_list li {
+  list-style: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .btn {
   background-color: #ef2756;
   color: white;
@@ -11053,8 +11064,15 @@ input::placeholder {
   color: black;
 }
 
+footer {
+  border-top: 5px solid #ef2756;
+  background-color: white;
+}
+
 .wrap-footer {
-  width: 80%;
+  background-color: white;
+  width: 90%;
+  padding-top: 30px;
   margin: auto;
 }
 
@@ -11085,6 +11103,15 @@ input::placeholder {
 
 .brand {
   font-size: 40px;
+}
+
+.brand-footer {
+  display: flex;
+  align-items: flex-end;
+}
+
+.brand-footer ul li {
+  padding: 25px;
 }
 
 .icons:hover {

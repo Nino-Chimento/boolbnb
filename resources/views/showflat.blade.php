@@ -6,31 +6,37 @@
   <div class="container">
      <!-- <a class="btn home" href="{{route('welcome')}}">Home</a> -->
     <div class="row justify-content-center">
-      <h1 class="mt-3">{{$flat->title}}</h1>
+      <h1 class="mt-5">{{$flat->title}}</h1>
       <div class="appartament col-12">
-        <img class="img-fluid img_width" src="{{$flat->img}}" alt="">
+        <img class="img-fluid img_width mt-5" src="{{$flat->img}}" alt="">
       </div>
     </div>
       <div class="container mt-5">
         <div class="row">
           <div class="col-xs-12 col-md-6">
-            <p class="font-weight-bold">{{$flat->summary}}</p>
+            <h5>Descrizione</h5>
+            <p class="">{{$flat->summary}}</p>
           </div>
           <div class="col-xs-12 col-md-6">
-            <ul class="font-weight-bold">
+            <ul class="features_list">
+              <h5>Titolo:</h5>
               <li>{{$flat->title}}</li>
+              <h5>indirizzo:</h5>
               <li>{{$flat->address}}</li>
-              <li>{{$flat->summary}}</li>
+              <h5>Numero Stanze:</h5>
               <li>{{$flat->rooms}}</li>
+              <h5>Numero Bagni:</h5>
               <li>{{$flat->bathrooms}}</li>
+              <h5>Numero Metri Quadri:</h5>
               <li>{{$flat->mq}}</li>
+              <h5>Città:</h5>
               <li>{{$flat->city}}</li>
             </ul>
           </div>
         </div>
             <div class="row mt-3">
               <div class="col-xs-12 col-md-12">
-                <ul class="font-weight-bold option">
+                <ul class=" class="font-weight-bold" option">
                   @foreach ($flat->options as $option)
                     @if ($option->name == "wifi")
                       <li>Wi-Fi</li>
@@ -75,6 +81,6 @@
           </div>
         </div>
       </div>
-    
+
 <script src="{{ asset('js/map.js') }}"></script>
 @endsection
