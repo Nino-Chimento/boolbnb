@@ -18,7 +18,7 @@ class MessageController extends Controller
     }
      $newmessage = new Message;
      $newmessage->flat_id = $data['id'];
-     $newmessage->email = $data['mail'];
+     $newmessage->email = $data['email'];
      $newmessage->name = $data['name'];
      $newmessage->number_phone='123432123445';
      $newmessage->message= $data['request'];

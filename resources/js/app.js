@@ -36,16 +36,16 @@ $(document).ready( function(){
     $('#pippo').click(function() {
 
       var name = $('.message_name').val();
-      var mail = $('.message_mail').val();
+      var email = $('.message_mail').val();
       var request = $('.message_request').val();
-      var id = $('.hidden').val();
+      var id = $('.id').val();
       console.log(id);
       $.ajax({
           url: "http://127.0.0.1:8000/api/message",
           method:'POST',
           data: {
             name:name,
-            mail:mail,
+            email:email,
             request:request,
             id:id
 

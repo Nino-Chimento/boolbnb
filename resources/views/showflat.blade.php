@@ -72,7 +72,7 @@
             <div>
               <label>Nome</label>
               <input class="message_name" type="text">
-              <input class="hidden" type="hidden" name="" value="{{$flat->id}}">
+              <input class="id" type="hidden" name="" value="{{$flat->id}}">
               <label for="mail">Email</label>
               <input class="message_mail" type="text" name="mail">
               <textarea class="message_request mt-3" name="request" rows="8" cols="80" placeholder="inserisci il tuo messaggio"></textarea>
