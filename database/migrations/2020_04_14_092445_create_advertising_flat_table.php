@@ -15,9 +15,9 @@ class CreateAdvertisingFlatTable extends Migration
     {
         Schema::create('advertising_flat', function (Blueprint $table) {
             $table->unsignedBigInteger('advertising_id');
-            $table->foreign('advertising_id')->references('id')->on('advertisings');
+            $table->foreign('advertising_id')->references('id')->on('advertisings')->onDelete('cascade');;
             $table->unsignedBigInteger('flat_id');
-            $table->foreign('flat_id')->references('id')->on('flats');
+            $table->foreign('flat_id')->references('id')->on('flats')->onDelete('cascade');;
             $table->timestamps();
         });
     }

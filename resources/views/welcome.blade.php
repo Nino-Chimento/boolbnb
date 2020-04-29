@@ -34,7 +34,7 @@
             </div>
             @foreach ($flats as $flat)
             <div class="carousel-item">
-                <img class="height_img d-block w-100" src="{{$flat->img}}" alt="Second slide">
+                <img class="height_img d-block w-100" src="{{asset("storage/".$flat->img)}}" alt="Second slide">
             </div>
             @endforeach
         </div>
@@ -49,7 +49,7 @@
         @foreach ($flats as $flat)
         <a class="card_style" href="{{(route('showflat', $flat->id))}}">
           <div class="card m-2" style="width: 20rem; height: 380px;">
-            <img src="{{$flat->img}}" class="card-img-top" alt="...">
+            <img src="{{asset("storage/".$flat->img)}}" class="card-img-top" alt="...">
             {{-- Aggiungi alle destinazioni il path --}}
             {{-- <img src="{{$flat->img}}" class="card-img-top" alt="..."> --}}
             <div class="card-body">
