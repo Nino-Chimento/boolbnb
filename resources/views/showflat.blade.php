@@ -77,6 +77,7 @@
               <input class="message_mail" type="text" name="mail">
               <textarea class="message_request mt-3" name="request" rows="8" cols="80" placeholder="inserisci il tuo messaggio"></textarea>
             <button id="pippo" class="btn mt-3">Invia</button>
+            <div class="ricevuta mt-3 font-weight-bold" style="font-size:25px;"></div>
           </div>
           </div>
         </div>

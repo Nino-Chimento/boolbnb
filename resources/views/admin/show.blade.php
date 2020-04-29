@@ -49,23 +49,28 @@
           </tr>
         </thead>
       </table>
-      <a  class="btn m-3" href="{{route("admin.sponsor",$flat->id)}}">Sponsorizza l'appartamento</a>
-      <img src="{{asset("storage/".$flat->img)}}" alt="">
+      <div class="container">
+        <div class="" style="display: flex; justify-content: space-between; margin-right: 80px">
+          <a  class="btn m-3" href="{{route("admin.sponsor",$flat->id)}}">Sponsorizza l'appartamento</a>
+          <a  class="btn m-3" href="{{route("admin.flats.index")}}">Tutti gli appartamenti</a>
+        </div>
+        <img class="img-fluid ml-3" style="width:1000px" src="{{asset("storage/".$flat->img)}}" alt="">
       </div>
-      <div class="row">
+      </div>
+      <div class="row mt-3 ml-3">
         <div class="col-6">
           @foreach ($flat->messages as $message)
-            <h3>da {{$message->name}}</h3>
-            <h6 class="font-weight-bold">Email: {{$message->email}}</h6>
-            <h6 class="mt-1 font-weight-bold">Messaggio Ricevuto:</h6>
-            <div class="border border-dark " style="width: 250px; height:100px; border-radius:8px;">
-              <h6 class="p-2">{{$message->message}}</h6>
+            <h3 class="ml-3"style="font-size:28px;">da {{$message->name}}</h3>
+            <h6 style="font-size:20px;" class="font-weight-bold ml-3">Email: {{$message->email}}</h6>
+            <h6 style="font-size:20px;" class="ml-3 mt-1 font-weight-bold">Messaggio Ricevuto:</h6>
+            <div class=" ml-3 border border-dark" style="width: 350px; height:200px; border-radius:8px;word-break:break-all">
+              <h6 class="p-2 ">{{$message->message}}</h6>
             </div>
           @endforeach
         </div>
-        <div class="grafico col-4" style="width: 400px;height:400px;">
-            <canvas class="" id="myChart" width="200" height="200"></canvas>
-            <h6 class="text-center m-4">Statistiche Visualizzazioni</h6>
+        <div class="grafico col-5 ">
+            <canvas class="" id="myChart" width="400" height="400"></canvas>
+            <h6 class="text-center m-4 font-weight-bold" style="font-size:26px;">Statistiche Visualizzazioni</h6>
         </div>
       </div>
     </div>

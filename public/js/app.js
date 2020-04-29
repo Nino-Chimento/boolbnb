@@ -37109,9 +37109,9 @@ $(document).ready(function () {
       },
       success: function success(data) {
         if (data) {
-          $('h1').append('messaggio inviato con successo');
+          $('.ricevuta').append('messaggio inviato con successo');
         } else {
-          $('h1').append('messaggio non inviato');
+          $('.ricevuta').append('messaggio non inviato');
         }
       },
       error: function error() {
