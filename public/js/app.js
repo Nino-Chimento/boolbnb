@@ -37082,6 +37082,8 @@ $(document).ready(function () {
     $('.card').each(function () {
       var htmlroom = parseInt($(this).find('.htmlrooms').text());
       var htmlbed = parseInt($(this).find('.htmlbeds').text());
+      console.log(htmlroom, htmlbed, beds, rooms);
+      console.log(rooms <= htmlroom || beds <= htmlbed); // console.log(htmlroom, htmlbed, rooms, beds);
 
       if (!isNaN(rooms)) {
         if (rooms <= htmlroom || beds <= htmlbed) {

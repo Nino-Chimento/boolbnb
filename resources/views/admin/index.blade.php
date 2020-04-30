@@ -19,10 +19,9 @@
             <tr>
               <th>Titolo</th>
               <th>Città</th>
-              <th>Mostra</th>
-              <th>Modifica</th>
-              <th>Elimina</th>
-
+              <th></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
