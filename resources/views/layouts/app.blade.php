@@ -47,9 +47,17 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                      <li><a class="btn m-3" href="{{route('welcome')}}">Home</a></li>
-                      <li><a class="btn m-3" href="{{route('admin.flats.index')}}">Dashboard</a></li>
+                    <ul class="navbar-nav ml-auto font">
+                      <li class="nav-item dropdown font-weight-bold" style="">
+                        <a id="navbarDropdown" class="nav-link" href="{{route('welcome')}}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                           Home
+                        </a>
+                      </li>
+                        <li class="nav-item dropdown font-weight-bold " style="">
+                        <a id="navbarDropdown" class="nav-link" href="{{route('admin.flats.index')}}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                           Dashboard
+                        </a>
+                      </li>
 
 
                         <!-- Authentication Links -->
@@ -63,7 +71,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown " style="line-height:50px">
+                            <li class="nav-item dropdown " style="">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>

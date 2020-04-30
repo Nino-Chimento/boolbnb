@@ -1,6 +1,7 @@
 .search_bar {
   width: 100%;
   padding: 10px;
+  display: inline-block;
   .search_width {
     width: 30%;
     height: 60px;
@@ -49,5 +50,22 @@
   .card {
     overflow: hidden;
 
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .height_img {
+    height: 42vh;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .search_bar .search_width, .search_bar .btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .height_img {
+    height: 30vh;
   }
 }

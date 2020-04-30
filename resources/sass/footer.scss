@@ -8,20 +8,18 @@ footer {
 
 .wrap-footer {
   background-color: white;
-  width: 90%;
-  padding-top: 30px;
-  margin: auto;
-  div{
-      width: 30%;
-  }
+  margin: 0 auto;
   h5{
       color: $primaryColor;
+      text-transform: uppercase;
   }
   ul{
    list-style: none;
 
    li{
        padding-top: 10px;
+       font-weight: bold;
+       font-style: italic;
    }
    a{
        color: black;
@@ -36,12 +34,24 @@ footer {
    font-size: 40px;
 }
 .brand-footer {
-  display: flex;
-  align-items: flex-end;
   ul li {
-    padding: 25px;
+    display: inline;
   }
 }
 .icons:hover {
   color: $primaryColor;
+}
+
+@media screen and (max-width: 1000px) {
+  .brand-footer{
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .brand-footer{
+    display: none;
+  }
+  .wrap-footer div {
+    width: 100%;
+  }
 }
