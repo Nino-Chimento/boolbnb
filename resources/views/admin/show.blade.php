@@ -10,7 +10,6 @@
             <tr>
               <th>Titolo</th>
               <th>Indirizzo</th>
-              <th>Descrizione</th>
               <th>Stanze</th>
               <th>Bagni</th>
               <th>Metri Quadrati</th>
@@ -37,7 +36,6 @@
               <td class="hidden">{{$flat->id}}</td>
               <td>{{$flat->title}}</td>
               <td>{{$flat->address}}</td>
-              <td>{{$flat->summary}}</td>
               <td>{{$flat->rooms}}</td>
               <td>{{$flat->bathrooms}}</td>
               <td>{{$flat->mq}}</td>
@@ -50,10 +48,11 @@
             </tr>
           </thead>
         </table>
+        <p class="m-3">{{$flat->summary}}</p>
       </div>
 
       <div class="container">
-        <div class="" style="display: flex; justify-content: space-between; margin-right: 80px">
+        <div class="" style="display: flex; justify-content: space-between; margin-right: 100px">
           <a  class="btn m-3" href="{{route("admin.sponsor",$flat->id)}}">Sponsorizza l'appartamento</a>
           <a  class="btn m-3" href="{{route("admin.flats.index")}}">Tutti gli appartamenti</a>
         </div>

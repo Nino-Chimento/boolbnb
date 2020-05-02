@@ -24,7 +24,7 @@
       @foreach($flatsFilter as $key => $flatfilter)
         <a href="{{(route('showflat', $flatfilter->id))}}" style="text-decoration:none; color:black">
           <ul class="card list-unstyled m-2 mt-4 text-center p-3" style="width: 200px; height: 350px;">
-          <img src="{{$flatfilter->img}}" class="card-img-top" alt="...">
+          <img src="{{asset("storage/".$flatfilter->img)}}" class="card-img-top" alt="...">
           <li>{{$flatfilter->title}}</li>
           <li>{{$flatfilter->address}}</li>
           <li>{{$flatfilter->city}}</li>

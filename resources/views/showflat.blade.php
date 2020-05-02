@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
       <h1 class="mt-5">{{$flat->title}}</h1>
       <div class="appartament col-12">
-        <img class="img-fluid img_width mt-5" src="{{$flat->img}}" alt="">
+        <img class="img-fluid img_width mt-5" src="{{asset("storage/".$flat->img)}}" alt="">
       </div>
     </div>
       <div class="container mt-5">
