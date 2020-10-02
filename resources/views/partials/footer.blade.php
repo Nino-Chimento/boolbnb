@@ -4,12 +4,7 @@
       <div class="col-xs-6 col-md-6 col-lg-4  name-footer">
         <ul>
           <h5>Tutti i diritti riservati</h5>
-          <li>Giuseppe Arimatea</li>
           <li>Nino Echo/Iffo</li>
-          <li>Daniele Lanzi</li>
-          <li>Simone Lega</li>
-          <li>Manuela Trotta</li>
-          <li></li>
         </ul>
       </div>
         <div class="col-xs-6 col-md-6 col-lg-4 ">

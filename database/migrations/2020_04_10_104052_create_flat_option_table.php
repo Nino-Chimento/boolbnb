@@ -15,9 +15,9 @@ class CreateFlatOptionTable extends Migration
     {
         Schema::create('flat_option', function (Blueprint $table) {
             $table->unsignedBigInteger('flat_id');
-            $table->foreign('flat_id')->references('id')->on('flats');
+            $table->foreign('flat_id')->references('id')->on('flats')->onDelete('cascade');
             $table->unsignedBigInteger('option_id');
-            $table->foreign('option_id')->references('id')->on('options');
+            $table->foreign('option_id')->references('id')->on('options')->onDelete('cascade');
         });
     }
 

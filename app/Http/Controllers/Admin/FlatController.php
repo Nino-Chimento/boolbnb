@@ -221,7 +221,6 @@ class FlatController extends Controller
         if(!empty($options)){
             $flat->options()->sync($options);
         }
-
         $flat->update($data);
         if(!$flat->update()){
             return redirect()->back();
